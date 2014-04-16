@@ -85,7 +85,6 @@ systemctl daemon-reload
 %{_datadir}/apps/sddm/themes/maui/*
 %{_sysconfdir}/pam.d/sddm
 /lib/systemd/system/sddm.service
-/lib/systemd/system/graphical.target.wants/sddm.service
 %{_libdir}/qt5/imports/SddmComponents/*
 # >> files
 # << files
