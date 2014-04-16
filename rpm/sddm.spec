@@ -42,7 +42,8 @@ Lightweight QML-based display manager.
 # << build pre
 
 %cmake .  \
-    -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DUSE_QT5:bool=ON
 
 make %{?_smp_mflags}
 
