@@ -16,12 +16,12 @@ License:    LGPL-2.1+
 URL:        https://github.com/sddm/sddm
 Source0:    %{name}-%{version}.tar.xz
 Source100:  sddm.yaml
+Requires:   weston
 Requires:   systemd
 Requires(preun): systemd
 Requires(post): systemd
 Requires(postun): systemd
 BuildRequires:  pkgconfig(systemd)
-BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Declarative)
@@ -43,7 +43,8 @@ Lightweight QML-based display manager.
 
 %cmake .  \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-    -DUSE_QT5:bool=ON
+    -DUSE_QT5:bool=ON \
+    -DUSE_WAYLAND:bool=ON
 
 make %{?_smp_mflags}
 
