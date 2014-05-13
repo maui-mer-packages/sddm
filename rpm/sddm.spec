@@ -22,9 +22,12 @@ Requires(preun): systemd
 Requires(post): systemd
 Requires(postun): systemd
 BuildRequires:  pkgconfig(systemd)
+BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
-BuildRequires:  pkgconfig(Qt5Declarative)
+BuildRequires:  pkgconfig(Qt5DBus)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  cmake
 BuildRequires:  pam-devel
 
