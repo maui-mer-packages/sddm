@@ -28,6 +28,7 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Compositor)
 BuildRequires:  cmake
 BuildRequires:  pam-devel
 BuildRequires:  qt5-qttools-linguist
@@ -48,7 +49,8 @@ Lightweight QML-based display manager.
 %cmake .  \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
     -DUSE_QT5:bool=ON \
-    -DUSE_WAYLAND:bool=ON
+    -DUSE_WAYLAND:bool=ON \
+    -DQTWAYLAND_SCANNER_EXECUTABLE="%{_libdir}/qt5/bin/qtwaylandscanner"
 
 make %{?_smp_mflags}
 
