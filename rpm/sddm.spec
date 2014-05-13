@@ -84,13 +84,13 @@ systemctl daemon-reload
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
 %{_appsdir}/apps/sddm/faces/*
-%{_datadir}/apps/sddm/scripts/Xsession
+%{_datadir}/apps/sddm/scripts/*
 %{_datadir}/apps/sddm/sddm.conf.sample
 %{_datadir}/apps/sddm/themes/circles/*
 %{_datadir}/apps/sddm/themes/elarun/*
 %{_datadir}/apps/sddm/themes/maldives/*
 %{_datadir}/apps/sddm/themes/maui/*
-%{_sysconfdir}/pam.d/sddm
+%{_sysconfdir}/pam.d/*
 /lib/systemd/system/sddm.service
 %{_libdir}/qt5/imports/SddmComponents/*
 # >> files
