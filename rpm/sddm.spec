@@ -30,6 +30,7 @@ BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  cmake
 BuildRequires:  pam-devel
+BuildRequires:  qt5-qttools-linguist
 
 %description
 Lightweight QML-based display manager.

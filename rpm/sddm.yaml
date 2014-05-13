@@ -13,6 +13,7 @@ SetupOptions: -q -n %{name}-%{version}/upstream
 PkgBR:
     - cmake
     - pam-devel
+    - qt5-qttools-linguist
 PkgConfigBR:
     - systemd
     - wayland-client
