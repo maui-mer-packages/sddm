@@ -19,10 +19,13 @@ PkgConfigBR:
     - Qt5Core
     - Qt5Gui
     - Qt5Declarative
+Requires:
+    - weston
 Configure  : cmake 
 ConfigOptions: 
     - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
     - -DUSE_QT5:bool=ON
+    - -DUSE_WAYLAND:bool=ON
 
 Files:
     - "%config %{_sysconfdir}/sddm.conf"
