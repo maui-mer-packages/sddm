@@ -83,7 +83,7 @@ systemctl daemon-reload
 %config %{_sysconfdir}/sddm.conf
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
-%{_appsdir}/apps/sddm/faces/*
+%{_datadir}/apps/sddm/faces/*
 %{_datadir}/apps/sddm/scripts/*
 %{_datadir}/apps/sddm/sddm.conf.sample
 %{_datadir}/apps/sddm/themes/circles/*
@@ -92,6 +92,6 @@ systemctl daemon-reload
 %{_datadir}/apps/sddm/themes/maui/*
 %{_sysconfdir}/pam.d/*
 /lib/systemd/system/sddm.service
-%{_libdir}/qt5/imports/SddmComponents/*
+%{_libdir}/qt5/qml/SddmComponents/*
 # >> files
 # << files
