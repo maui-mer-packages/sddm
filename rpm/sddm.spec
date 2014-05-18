@@ -93,6 +93,7 @@ systemctl daemon-reload
 %{_datadir}/apps/sddm/themes/maldives/*
 %{_datadir}/apps/sddm/themes/maui/*
 %{_sysconfdir}/pam.d/*
+%{_sysconfdir}/dbus-1/system.d/org.freedesktop.DisplayManager.conf
 /lib/systemd/system/sddm.service
 %{_libdir}/qt5/qml/SddmComponents/*
 # >> files
