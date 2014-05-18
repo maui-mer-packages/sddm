@@ -84,7 +84,9 @@ systemctl daemon-reload
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
 %{_datadir}/apps/sddm/faces/*
+%{_datadir}/apps/sddm/flags/*
 %{_datadir}/apps/sddm/scripts/*
+%{_datadir}/apps/sddm/translations/*
 %{_datadir}/apps/sddm/sddm.conf.sample
 %{_datadir}/apps/sddm/themes/circles/*
 %{_datadir}/apps/sddm/themes/elarun/*
