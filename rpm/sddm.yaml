@@ -27,6 +27,9 @@ PkgConfigBR:
     - Qt5Compositor
 Requires:
     - weston
+Provides:
+    - service(graphical-login) = %{name}
+
 Configure  : cmake 
 ConfigOptions: 
     - -DCMAKE_BUILD_TYPE=RelWithDebInfo 

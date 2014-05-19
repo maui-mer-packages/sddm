@@ -33,6 +33,7 @@ BuildRequires:  pkgconfig(Qt5Compositor)
 BuildRequires:  cmake
 BuildRequires:  pam-devel
 BuildRequires:  qt5-qttools-linguist
+Provides:   service(graphical-login) = %{name}
 
 %description
 Lightweight QML-based display manager.
