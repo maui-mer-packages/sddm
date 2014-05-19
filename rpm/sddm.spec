@@ -44,6 +44,8 @@ Lightweight QML-based display manager.
 
 %build
 # >> build pre
+# Get rid of the architecture flag, this will fix arm build
+sed -i "s/-march=native//" CMakeLists.txt
 # << build pre
 
 %cmake .  \
