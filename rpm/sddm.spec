@@ -46,6 +46,9 @@ Lightweight QML-based display manager.
 # >> build pre
 # Get rid of the architecture flag, this will fix arm build
 sed -i "s/-march=native//" CMakeLists.txt
+
+# systemd graphical target uses vt1 for display managers
+sed -i "s/MinimumVT=7/MinimumVT=1/" data/sddm.conf.in
 # << build pre
 
 %cmake .  \
