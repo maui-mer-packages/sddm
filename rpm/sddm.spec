@@ -6,6 +6,7 @@
 Name:       sddm
 
 # >> macros
+%define _unitdir /%{_lib}/systemd/system
 # << macros
 
 Summary:    Lightweight QML-based display manager
@@ -15,13 +16,10 @@ Group:      System/GUI/Other
 License:    LGPL-2.1+
 URL:        https://github.com/sddm/sddm
 Source0:    %{name}-%{version}.tar.xz
+Source1:    sddm.service
 Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
 Requires:   weston
-Requires:   systemd
-Requires(preun): systemd
-Requires(post): systemd
-Requires(postun): systemd
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(Qt5Core)
@@ -68,19 +66,9 @@ rm -rf %{buildroot}
 %make_install
 
 # >> install post
+# Install better systemd unit
+install -Dpm 644 %{SOURCE1} %{buildroot}%{_unitdir}/sddm.service
 # << install post
-
-%preun
-if [ "$1" -eq 0 ]; then
-systemctl stop sddm.service
-fi
-
-%post
-systemctl daemon-reload
-systemctl reload-or-try-restart sddm.service
-
-%postun
-systemctl daemon-reload
 
 %files
 %defattr(-,root,root,-)
@@ -98,7 +86,7 @@ systemctl daemon-reload
 %{_datadir}/apps/sddm/themes/elarun/*
 %{_datadir}/apps/sddm/themes/maldives/*
 %{_datadir}/apps/sddm/themes/maui/*
-/%{_lib}/systemd/system/sddm.service
+%{_unitdir}/sddm.service
 %{_libdir}/qt5/qml/SddmComponents/*
 # >> files
 # << files

@@ -8,6 +8,7 @@ Description : Lightweight QML-based display manager.
 URL         : https://github.com/sddm/sddm
 Sources     :
     - "%{name}-%{version}.tar.xz"
+    - sddm.service
 SetupOptions: -q -n %{name}-%{version}/upstream
 RpmLintIgnore:
     - files-duplicate
@@ -52,5 +53,5 @@ Files:
     - "%{_datadir}/apps/sddm/themes/elarun/*"
     - "%{_datadir}/apps/sddm/themes/maldives/*"
     - "%{_datadir}/apps/sddm/themes/maui/*"
-    - "/%{_lib}/systemd/system/sddm.service"
+    - "%{_unitdir}/sddm.service"
     - "%{_libdir}/qt5/qml/SddmComponents/*"
