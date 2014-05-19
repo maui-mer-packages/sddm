@@ -16,6 +16,7 @@ License:    LGPL-2.1+
 URL:        https://github.com/sddm/sddm
 Source0:    %{name}-%{version}.tar.xz
 Source100:  sddm.yaml
+Source101:  sddm-rpmlintrc
 Requires:   weston
 Requires:   systemd
 Requires(preun): systemd
@@ -83,6 +84,8 @@ systemctl daemon-reload
 %files
 %defattr(-,root,root,-)
 %config %{_sysconfdir}/sddm.conf
+%config(noreplace) %{_sysconfdir}/pam.d/sddm
+%config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.freedesktop.DisplayManager.conf
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
 %{_datadir}/apps/sddm/faces/*
@@ -94,9 +97,7 @@ systemctl daemon-reload
 %{_datadir}/apps/sddm/themes/elarun/*
 %{_datadir}/apps/sddm/themes/maldives/*
 %{_datadir}/apps/sddm/themes/maui/*
-%{_sysconfdir}/pam.d/*
-%{_sysconfdir}/dbus-1/system.d/org.freedesktop.DisplayManager.conf
-/lib/systemd/system/sddm.service
+/%{_lib}/systemd/system/sddm.service
 %{_libdir}/qt5/qml/SddmComponents/*
 # >> files
 # << files
