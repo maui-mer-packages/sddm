@@ -19,7 +19,7 @@ Source0:    %{name}-%{version}.tar.xz
 Source1:    sddm.service
 Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
-Requires:   weston
+Requires:   xorg-x11-server-Xorg
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(Qt5Core)
@@ -28,6 +28,7 @@ BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Compositor)
+BuildRequires:  pkgconfig(xcb)
 BuildRequires:  cmake
 BuildRequires:  pam-devel
 BuildRequires:  qt5-qttools-linguist
@@ -53,9 +54,7 @@ sed -i "s/MinimumVT=7/MinimumVT=1/" data/sddm.conf.in
 
 %cmake .  \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-    -DUSE_QT5:bool=ON \
-    -DUSE_WAYLAND:bool=ON \
-    -DQTWAYLAND_SCANNER_EXECUTABLE="%{_libdir}/qt5/bin/qtwaylandscanner"
+    -DUSE_QT5:bool=ON
 
 make %{?_smp_mflags}
 

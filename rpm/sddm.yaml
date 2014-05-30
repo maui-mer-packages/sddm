@@ -26,8 +26,9 @@ PkgConfigBR:
     - Qt5Qml
     - Qt5Quick
     - Qt5Compositor
+    - xcb
 Requires:
-    - weston
+    - xorg-x11-server-Xorg
 Provides:
     - service(graphical-login) = %{name}
 
@@ -35,8 +36,6 @@ Configure  : cmake
 ConfigOptions: 
     - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
     - -DUSE_QT5:bool=ON
-    - -DUSE_WAYLAND:bool=ON
-    - -DQTWAYLAND_SCANNER_EXECUTABLE="%{_libdir}/qt5/bin/qtwaylandscanner"
 
 Files:
     - "%config %{_sysconfdir}/sddm.conf"
