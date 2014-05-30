@@ -76,6 +76,7 @@ install -Dpm 644 %{SOURCE1} %{buildroot}%{_unitdir}/sddm.service
 %defattr(-,root,root,-)
 %config %{_sysconfdir}/sddm.conf
 %config(noreplace) %{_sysconfdir}/pam.d/sddm
+%config(noreplace) %{_sysconfdir}/pam.d/sddm-autologin
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.freedesktop.DisplayManager.conf
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
