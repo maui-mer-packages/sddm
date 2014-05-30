@@ -27,6 +27,7 @@ PkgConfigBR:
     - Qt5Quick
     - Qt5Compositor
     - xcb
+    - xcb-xkb
 Requires:
     - xorg-x11-server-Xorg
 Provides:

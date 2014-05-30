@@ -29,6 +29,7 @@ BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Compositor)
 BuildRequires:  pkgconfig(xcb)
+BuildRequires:  pkgconfig(xcb-xkb)
 BuildRequires:  cmake
 BuildRequires:  pam-devel
 BuildRequires:  qt5-qttools-linguist
