@@ -20,6 +20,7 @@ Source1:    sddm.service
 Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
 Requires:   xorg-x11-server-Xorg
+Requires:   libxcb >= 1.10
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)

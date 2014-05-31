@@ -28,6 +28,7 @@ PkgConfigBR:
     - xcb-xkb
 Requires:
     - xorg-x11-server-Xorg
+    - libxcb >= 1.10
 Provides:
     - service(graphical-login) = %{name}
 
