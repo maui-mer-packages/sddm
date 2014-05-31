@@ -19,7 +19,6 @@ PkgBR:
     - qt5-qttools-linguist
 PkgConfigBR:
     - systemd
-    - wayland-client
     - Qt5Core
     - Qt5Gui
     - Qt5DBus

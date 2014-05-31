@@ -21,7 +21,6 @@ Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
 Requires:   xorg-x11-server-Xorg
 BuildRequires:  pkgconfig(systemd)
-BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5DBus)
