@@ -8,7 +8,6 @@ Description : Lightweight QML-based display manager.
 URL         : https://github.com/sddm/sddm
 Sources     :
     - "%{name}-%{version}.tar.xz"
-    - sddm.service
 SetupOptions: -q -n %{name}-%{version}/upstream
 RpmLintIgnore:
     - files-duplicate
@@ -17,6 +16,7 @@ PkgBR:
     - cmake
     - pam-devel
     - qt5-qttools-linguist
+    - systemd
 PkgConfigBR:
     - systemd
     - Qt5Core
@@ -31,6 +31,13 @@ Requires:
     - libxcb >= 1.10
 Provides:
     - service(graphical-login) = %{name}
+
+RequiresPost:
+    - systemd
+RequiresPreUn:
+    - systemd
+RequiresPostUn:
+    - systemd
 
 Configure  : cmake 
 ConfigOptions: 

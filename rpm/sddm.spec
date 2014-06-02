@@ -6,7 +6,6 @@
 Name:       sddm
 
 # >> macros
-%define _unitdir /%{_lib}/systemd/system
 # << macros
 
 Summary:    Lightweight QML-based display manager
@@ -16,11 +15,13 @@ Group:      System/GUI/Other
 License:    LGPL-2.1+
 URL:        https://github.com/sddm/sddm
 Source0:    %{name}-%{version}.tar.xz
-Source1:    sddm.service
 Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
 Requires:   xorg-x11-server-Xorg
 Requires:   libxcb >= 1.10
+Requires(preun): systemd
+Requires(post): systemd
+Requires(postun): systemd
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
@@ -32,6 +33,7 @@ BuildRequires:  pkgconfig(xcb-xkb)
 BuildRequires:  cmake
 BuildRequires:  pam-devel
 BuildRequires:  qt5-qttools-linguist
+BuildRequires:  systemd
 Provides:   service(graphical-login) = %{name}
 
 %description
@@ -47,9 +49,6 @@ Lightweight QML-based display manager.
 # >> build pre
 # Get rid of the architecture flag, this will fix arm build
 sed -i "s/-march=native//" CMakeLists.txt
-
-# systemd graphical target uses vt1 for display managers
-sed -i "s/MinimumVT=7/MinimumVT=1/" data/sddm.conf.in
 # << build pre
 
 %cmake .  \
@@ -68,9 +67,22 @@ rm -rf %{buildroot}
 %make_install
 
 # >> install post
-# Install better systemd unit
-install -Dpm 644 %{SOURCE1} %{buildroot}%{_unitdir}/sddm.service
 # << install post
+
+%preun
+# >> preun
+%systemd_preun sddm.service
+# << preun
+
+%post
+# >> post
+%systemd_post sddm.service
+# << post
+
+%postun
+# >> postun
+%systemd_postun_with_restart sddm.service
+# << postun
 
 %files
 %defattr(-,root,root,-)
