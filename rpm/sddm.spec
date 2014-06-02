@@ -72,6 +72,7 @@ rm -rf %{buildroot}
 # Create sddm user
 /usr/sbin/useradd -M -u 42 -d /var/lib/sddm -s /sbin/nologin -r sddm > /dev/null 2>&1
 /usr/sbin/usermod -d /var/lib/sddm -s /sbin/nologin sddm >/dev/null 2>&1
+/usr/sbin/usermod -a -G video sddm >/dev/null 2>&1
 # ignore errors, as we can't disambiguate between sddm already existed
 # and couldn't create account with the current adduser.
 exit 0
