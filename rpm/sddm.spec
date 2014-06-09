@@ -65,6 +65,8 @@ rm -rf %{buildroot}
 %make_install
 
 # >> install post
+sed -i "s/MinimumUid=.*/MinimumUid=100000/g" %{buildroot}/etc/sddm.conf
+sed -i "s/MaximumUid=.*/MaximumUid=199999/g" %{buildroot}/etc/sddm.conf
 # << install post
 
 %pre
