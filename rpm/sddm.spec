@@ -103,15 +103,15 @@ exit 0
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.freedesktop.DisplayManager.conf
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
-%{_datadir}/apps/sddm/faces/*
-%{_datadir}/apps/sddm/flags/*
-%{_datadir}/apps/sddm/scripts/*
-%{_datadir}/apps/sddm/translations/*
-%{_datadir}/apps/sddm/sddm.conf.sample
-%{_datadir}/apps/sddm/themes/circles/*
-%{_datadir}/apps/sddm/themes/elarun/*
-%{_datadir}/apps/sddm/themes/maldives/*
-%{_datadir}/apps/sddm/themes/maui/*
+%{_datadir}/sddm/faces/*
+%{_datadir}/sddm/flags/*
+%{_datadir}/sddm/scripts/*
+%{_datadir}/sddm/translations/*
+%{_datadir}/sddm/sddm.conf.sample
+%{_datadir}/sddm/themes/circles/*
+%{_datadir}/sddm/themes/elarun/*
+%{_datadir}/sddm/themes/maldives/*
+%{_datadir}/sddm/themes/maui/*
 %{_unitdir}/sddm.service
 %{_libdir}/qt5/qml/SddmComponents/*
 # >> files
