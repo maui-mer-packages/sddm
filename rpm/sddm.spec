@@ -74,7 +74,6 @@ sed -i "s/MaximumUid=.*/MaximumUid=199999/g" %{buildroot}/etc/sddm.conf
 # Create sddm user
 /usr/sbin/useradd -m -u 42 -d /var/lib/sddm -s /sbin/nologin -r sddm > /dev/null 2>&1
 /usr/sbin/usermod -d /var/lib/sddm -s /sbin/nologin sddm >/dev/null 2>&1
-/usr/sbin/usermod -a -G video sddm >/dev/null 2>&1
 # ignore errors, as we can't disambiguate between sddm already existed
 # and couldn't create account with the current adduser.
 exit 0
@@ -100,6 +99,7 @@ exit 0
 %config %{_sysconfdir}/sddm.conf
 %config(noreplace) %{_sysconfdir}/pam.d/sddm
 %config(noreplace) %{_sysconfdir}/pam.d/sddm-autologin
+%config(noreplace) %{_sysconfdir}/pam.d/sddm-greeter
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.freedesktop.DisplayManager.conf
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
