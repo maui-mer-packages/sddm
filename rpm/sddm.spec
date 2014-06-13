@@ -92,6 +92,9 @@ exit 0
 %postun
 # >> postun
 %systemd_postun_with_restart sddm.service
+
+# Drop sddm user
+/usr/sbin/userdel -r sddm > /dev/null 2>&1
 # << postun
 
 %files
