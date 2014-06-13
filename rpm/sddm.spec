@@ -106,6 +106,7 @@ exit 0
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/org.freedesktop.DisplayManager.conf
 %{_bindir}/sddm
 %{_bindir}/sddm-greeter
+%{_libexecdir}/sddm-helper
 %{_datadir}/sddm/faces/*
 %{_datadir}/sddm/flags/*
 %{_datadir}/sddm/scripts/*
