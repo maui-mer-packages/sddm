@@ -70,6 +70,10 @@ uid_min="$(awk 'BEGIN { uid=100000 } /^\s*UID_MIN/ { uid=$2 } END { print uid }'
 uid_max="$(awk 'BEGIN { uid=199999 } /^\s*UID_MAX/ { uid=$2 } END { print uid }' /etc/login.defs 2>/dev/null)"
 sed -i "s/MinimumUid=.*/MinimumUid=${uid_min}/g" %{buildroot}%{_sysconfdir}/sddm.conf
 sed -i "s/MaximumUid=.*/MaximumUid=${uid_max}/g" %{buildroot}%{_sysconfdir}/sddm.conf
+
+# Fix pam configuration
+sed -i "s/system-login/system-auth/g" %{buildroot}%{_sysconfdir}/pam.d/sddm
+sed -i "s/system-local-login/system-auth/g" %{buildroot}%{_sysconfdir}/pam.d/sddm-autologin
 # << install post
 
 %pre
