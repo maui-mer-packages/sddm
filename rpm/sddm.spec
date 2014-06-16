@@ -68,8 +68,8 @@ rm -rf %{buildroot}
 # Setup minimum and maximum UID according to /etc/login.defs
 uid_min="$(awk 'BEGIN { uid=100000 } /^\s*UID_MIN/ { uid=$2 } END { print uid }' /etc/login.defs 2>/dev/null)"
 uid_max="$(awk 'BEGIN { uid=199999 } /^\s*UID_MAX/ { uid=$2 } END { print uid }' /etc/login.defs 2>/dev/null)"
-sed -i "s/MinimumUid=.*/MinimumUid=${uid_min}/g" %{buildroot}/etc/sddm.conf
-sed -i "s/MaximumUid=.*/MaximumUid=${uid_max}/g" %{buildroot}/etc/sddm.conf
+sed -i "s/MinimumUid=.*/MinimumUid=${uid_min}/g" %{buildroot}%{_sysconfdir}/sddm.conf
+sed -i "s/MaximumUid=.*/MaximumUid=${uid_max}/g" %{buildroot}%{_sysconfdir}/sddm.conf
 # << install post
 
 %pre
