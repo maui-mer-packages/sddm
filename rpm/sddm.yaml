@@ -12,6 +12,10 @@ SetupOptions: -q -n %{name}-%{version}/upstream
 RpmLintIgnore:
     - files-duplicate
 
+Patches:
+    - 0001-Start-sddm.service-after-plymouth-quit.service.patch
+    - 0002-Don-t-reset-background-when-starting-the-X-server.patch
+
 PkgBR:
     - cmake
     - pam-devel
