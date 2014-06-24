@@ -21,6 +21,7 @@ Patch0:     0001-Start-sddm.service-after-plymouth-quit.service.patch
 Patch1:     0002-Don-t-reset-background-when-starting-the-X-server.patch
 Requires:   xorg-x11-server-Xorg
 Requires:   libxcb >= 1.10
+Requires:   qt5-plugin-platform-xcb
 Requires(preun): systemd
 Requires(post): systemd
 Requires(postun): systemd

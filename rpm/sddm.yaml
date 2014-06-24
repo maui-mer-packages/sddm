@@ -33,6 +33,7 @@ PkgConfigBR:
 Requires:
     - xorg-x11-server-Xorg
     - libxcb >= 1.10
+    - qt5-plugin-platform-xcb
 Provides:
     - service(graphical-login) = %{name}
 
