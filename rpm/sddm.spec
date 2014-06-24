@@ -85,7 +85,7 @@ sed -i "s/system-local-login/system-auth/g" %{buildroot}%{_sysconfdir}/pam.d/sdd
 %pre
 # >> pre
 # Create sddm user
-/usr/sbin/useradd -m -u 42 -d /var/lib/sddm -s /sbin/nologin -r sddm > /dev/null 2>&1
+/usr/sbin/useradd -m -d /var/lib/sddm -s /sbin/nologin -r sddm > /dev/null 2>&1
 /usr/sbin/usermod -d /var/lib/sddm -s /sbin/nologin sddm >/dev/null 2>&1
 # ignore errors, as we can't disambiguate between sddm already existed
 # and couldn't create account with the current adduser.
@@ -105,9 +105,6 @@ exit 0
 %postun
 # >> postun
 %systemd_postun_with_restart sddm.service
-
-# Drop sddm user
-/usr/sbin/userdel -r sddm > /dev/null 2>&1
 # << postun
 
 %files
