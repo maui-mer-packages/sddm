@@ -17,8 +17,6 @@ URL:        https://github.com/sddm/sddm
 Source0:    %{name}-%{version}.tar.xz
 Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
-Patch0:     0001-Start-sddm.service-after-plymouth-quit.service.patch
-Patch1:     0002-Don-t-reset-background-when-starting-the-X-server.patch
 Requires:   xorg-x11-server-Xorg
 Requires:   libxcb >= 1.10
 Requires:   qt5-plugin-platform-xcb
@@ -45,10 +43,6 @@ Lightweight QML-based display manager.
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
-# 0001-Start-sddm.service-after-plymouth-quit.service.patch
-%patch0 -p1
-# 0002-Don-t-reset-background-when-starting-the-X-server.patch
-%patch1 -p1
 # >> setup
 # << setup
 
