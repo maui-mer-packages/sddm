@@ -17,6 +17,10 @@ URL:        https://github.com/sddm/sddm
 Source0:    %{name}-%{version}.tar.xz
 Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
+Patch0:     0001-Add-debugging-messages-to-the-authentication-code.patch
+Patch1:     0002-sddm-helper-exit-with-code-0-otherwise-it-looks-like.patch
+Patch2:     0003-Don-t-restart-greeter-and-display-server-if-sddm-hel.patch
+Patch3:     0004-Handle-authentication-errors-from-PAM-conversation.patch
 Requires:   xorg-x11-server-Xorg
 Requires:   libxcb >= 1.10
 Requires:   qt5-plugin-platform-xcb
@@ -43,6 +47,14 @@ Lightweight QML-based display manager.
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
+# 0001-Add-debugging-messages-to-the-authentication-code.patch
+%patch0 -p1
+# 0002-sddm-helper-exit-with-code-0-otherwise-it-looks-like.patch
+%patch1 -p1
+# 0003-Don-t-restart-greeter-and-display-server-if-sddm-hel.patch
+%patch2 -p1
+# 0004-Handle-authentication-errors-from-PAM-conversation.patch
+%patch3 -p1
 # >> setup
 # << setup
 

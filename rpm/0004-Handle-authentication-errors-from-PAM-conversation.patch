@@ -1,0 +1,40 @@
+From bca0ebf25bbfebf677767487645b73a5354ef674 Mon Sep 17 00:00:00 2001
+From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+Date: Fri, 11 Jul 2014 23:01:43 +0200
+Subject: [PATCH 4/4] Handle authentication errors from PAM conversation
+
+We receive the error signal with an ERROR_AUTHENTICATION when the
+conversation failes before the sddm-helper even exited.
+
+Emit loginFailed() for authentication errors in order to show the
+message from the greeter.
+
+Issue: #221
+---
+ src/daemon/Display.cpp | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/src/daemon/Display.cpp b/src/daemon/Display.cpp
+index 2a1a5b0..0e34b40 100644
+--- a/src/daemon/Display.cpp
++++ b/src/daemon/Display.cpp
+@@ -363,9 +363,14 @@ namespace SDDM {
+     }
+ 
+     void Display::slotAuthError(const QString &message, Auth::Error error) {
+-        // TODO: presentable to the user, eventually
+-        Q_UNUSED(error);
++        // TODO: handle more errors
+         qWarning() << "Authentication error:" << message;
++
++        if (!m_socket)
++            return;
++
++        if (error == Auth::ERROR_AUTHENTICATION)
++            emit loginFailed(m_socket);
+     }
+ 
+     void Display::slotHelperFinished(bool success) {
+-- 
+2.0.1
+

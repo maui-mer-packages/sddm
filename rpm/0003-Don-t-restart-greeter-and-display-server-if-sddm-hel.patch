@@ -1,0 +1,40 @@
+From fad8d62ba1a151b98c4bb39d116c67199befd23a Mon Sep 17 00:00:00 2001
+From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+Date: Fri, 11 Jul 2014 21:28:47 +0200
+Subject: [PATCH 3/4] Don't restart greeter and display server if sddm-helper
+ exited successfully
+
+sddm-helper now finishes with exit code 0 even when an authentication failure
+happend because it's a managed situation.
+
+When an authentication error is raised we should really do something when
+the error() signal is emitted.
+
+Invoke stop() only when an internal error happens to avoid restarting the
+greeter and display server for authentication errors, which is annoying
+to say the least.
+
+Issue: #221
+---
+ src/daemon/Display.cpp | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/daemon/Display.cpp b/src/daemon/Display.cpp
+index dcdb54f..2a1a5b0 100644
+--- a/src/daemon/Display.cpp
++++ b/src/daemon/Display.cpp
+@@ -369,7 +369,10 @@ namespace SDDM {
+     }
+ 
+     void Display::slotHelperFinished(bool success) {
+-        stop();
++        // Don't restart greeter and display server unless sddm-helper exited
++        // with an internal error
++        if (!success)
++            stop();
+     }
+ 
+     void Display::slotRequestChanged() {
+-- 
+2.0.1
+
