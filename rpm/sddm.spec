@@ -87,6 +87,7 @@ sed -i "s/MaximumUid=.*/MaximumUid=${uid_max}/g" %{buildroot}%{_sysconfdir}/sddm
 # Fix pam configuration
 sed -i "s/system-login/system-auth/g" %{buildroot}%{_sysconfdir}/pam.d/sddm
 sed -i "s/system-local-login/system-auth/g" %{buildroot}%{_sysconfdir}/pam.d/sddm-autologin
+sed -i "s/pam_tally.so/pam_tally2.so/g" %{buildroot}%{_sysconfdir}/pam.d/sddm-autologin
 # << install post
 
 %pre
