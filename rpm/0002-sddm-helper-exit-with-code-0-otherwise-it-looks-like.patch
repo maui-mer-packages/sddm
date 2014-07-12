@@ -1,4 +1,4 @@
-From db5a6fe731e4c7251074d70ae0cbc39ddc0f4370 Mon Sep 17 00:00:00 2001
+From e9734470850a0be88dfd4bcd1eb4134ee13383ad Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Fri, 11 Jul 2014 20:59:12 +0200
 Subject: [PATCH 2/4] sddm-helper: exit with code 0 otherwise it looks like an
@@ -39,5 +39,5 @@ index 30d0ef8..5dbd7f1 100644
      }
  
 -- 
-2.0.1
+1.8.3-rc3
 

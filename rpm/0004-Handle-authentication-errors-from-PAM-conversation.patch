@@ -1,4 +1,4 @@
-From bca0ebf25bbfebf677767487645b73a5354ef674 Mon Sep 17 00:00:00 2001
+From feead3872bbca17914fd88f3158321ae37692fbc Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Fri, 11 Jul 2014 23:01:43 +0200
 Subject: [PATCH 4/4] Handle authentication errors from PAM conversation
@@ -36,5 +36,5 @@ index 2a1a5b0..0e34b40 100644
  
      void Display::slotHelperFinished(bool success) {
 -- 
-2.0.1
+1.8.3-rc3
 

@@ -1,4 +1,4 @@
-From b14ae3abe3a8d775bff17ae2c8f1914b0ed72c42 Mon Sep 17 00:00:00 2001
+From f45b5b1403e554772ea71e1354c47ffd7a2a8bd4 Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Fri, 11 Jul 2014 20:45:01 +0200
 Subject: [PATCH 1/4] Add debugging messages to the authentication code
@@ -33,5 +33,5 @@ index cd8bd11..dfdcc05 100644
  
  void Auth::Private::childError(QProcess::ProcessError error) {
 -- 
-2.0.1
+1.8.3-rc3
 
