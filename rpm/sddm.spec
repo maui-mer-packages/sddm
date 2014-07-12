@@ -9,7 +9,7 @@ Name:       sddm
 # << macros
 
 Summary:    Lightweight QML-based display manager
-Version:    0.1.0
+Version:    0.8.90
 Release:    1
 Group:      System/GUI/Other
 License:    LGPL-2.1+
