@@ -29,6 +29,7 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Test)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-xkb)
 BuildRequires:  cmake
