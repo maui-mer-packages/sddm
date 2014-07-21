@@ -9,7 +9,7 @@ Name:       sddm
 # << macros
 
 Summary:    Lightweight QML-based display manager
-Version:    0.8.90
+Version:    0.8.99
 Release:    1
 Group:      System/GUI/Other
 License:    LGPL-2.1+
@@ -17,10 +17,6 @@ URL:        https://github.com/sddm/sddm
 Source0:    %{name}-%{version}.tar.xz
 Source100:  sddm.yaml
 Source101:  sddm-rpmlintrc
-Patch0:     0001-Add-debugging-messages-to-the-authentication-code.patch
-Patch1:     0002-sddm-helper-exit-with-code-0-otherwise-it-looks-like.patch
-Patch2:     0003-Don-t-restart-greeter-and-display-server-if-sddm-hel.patch
-Patch3:     0004-Handle-authentication-errors-from-PAM-conversation.patch
 Requires:   xorg-x11-server-Xorg
 Requires:   libxcb >= 1.10
 Requires:   qt5-plugin-platform-xcb
@@ -47,14 +43,6 @@ Lightweight QML-based display manager.
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
-# 0001-Add-debugging-messages-to-the-authentication-code.patch
-%patch0 -p1
-# 0002-sddm-helper-exit-with-code-0-otherwise-it-looks-like.patch
-%patch1 -p1
-# 0003-Don-t-restart-greeter-and-display-server-if-sddm-hel.patch
-%patch2 -p1
-# 0004-Handle-authentication-errors-from-PAM-conversation.patch
-%patch3 -p1
 # >> setup
 # << setup
 
@@ -81,8 +69,11 @@ rm -rf %{buildroot}
 # Setup minimum and maximum UID according to /etc/login.defs
 uid_min="$(awk 'BEGIN { uid=100000 } /^\s*UID_MIN/ { uid=$2 } END { print uid }' /etc/login.defs 2>/dev/null)"
 uid_max="$(awk 'BEGIN { uid=199999 } /^\s*UID_MAX/ { uid=$2 } END { print uid }' /etc/login.defs 2>/dev/null)"
-sed -i "s/MinimumUid=.*/MinimumUid=${uid_min}/g" %{buildroot}%{_sysconfdir}/sddm.conf
-sed -i "s/MaximumUid=.*/MaximumUid=${uid_max}/g" %{buildroot}%{_sysconfdir}/sddm.conf
+cat > %{buildroot}%{_sysconfdir}/sddm.conf <<EOF
+[Users]
+MinimumUid=${uid_min}
+MaximumUid=${uid_max}
+EOF
 
 # Fix pam configuration
 sed -i "s/system-login/system-auth/g" %{buildroot}%{_sysconfdir}/pam.d/sddm
@@ -129,7 +120,6 @@ exit 0
 %{_datadir}/sddm/flags/*
 %{_datadir}/sddm/scripts/*
 %{_datadir}/sddm/translations/*
-%{_datadir}/sddm/sddm.conf.sample
 %{_datadir}/sddm/themes/circles/*
 %{_datadir}/sddm/themes/elarun/*
 %{_datadir}/sddm/themes/maldives/*

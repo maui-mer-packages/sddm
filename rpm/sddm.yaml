@@ -1,5 +1,5 @@
 Name        : sddm
-Version     : 0.8.90
+Version     : 0.8.99
 Release     : 1
 Group       : System/GUI/Other
 License     : LGPL-2.1+
@@ -11,12 +11,6 @@ Sources     :
 SetupOptions: -q -n %{name}-%{version}/upstream
 RpmLintIgnore:
     - files-duplicate
-
-Patches:
-    - 0001-Add-debugging-messages-to-the-authentication-code.patch
-    - 0002-sddm-helper-exit-with-code-0-otherwise-it-looks-like.patch
-    - 0003-Don-t-restart-greeter-and-display-server-if-sddm-hel.patch
-    - 0004-Handle-authentication-errors-from-PAM-conversation.patch
 
 PkgBR:
     - cmake
@@ -64,7 +58,6 @@ Files:
     - "%{_datadir}/sddm/flags/*"
     - "%{_datadir}/sddm/scripts/*"
     - "%{_datadir}/sddm/translations/*"
-    - "%{_datadir}/sddm/sddm.conf.sample"
     - "%{_datadir}/sddm/themes/circles/*"
     - "%{_datadir}/sddm/themes/elarun/*"
     - "%{_datadir}/sddm/themes/maldives/*"
