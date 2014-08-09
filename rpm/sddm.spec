@@ -20,6 +20,7 @@ Source101:  sddm-rpmlintrc
 Requires:   xorg-x11-server-Xorg
 Requires:   libxcb >= 1.10
 Requires:   qt5-plugin-platform-xcb
+Requires:   systemd
 Requires(preun): systemd
 Requires(post): systemd
 Requires(postun): systemd
@@ -52,8 +53,7 @@ Lightweight QML-based display manager.
 # << build pre
 
 %cmake .  \
-    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-    -DUSE_QT5:bool=ON
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
 make %{?_smp_mflags}
 
@@ -93,16 +93,22 @@ exit 0
 # << pre
 
 %preun
+if [ "$1" -eq 0 ]; then
+systemctl stop sddm.service
+fi
 # >> preun
 %systemd_preun sddm.service
 # << preun
 
 %post
+systemctl daemon-reload
+systemctl reload-or-try-restart sddm.service
 # >> post
 %systemd_post sddm.service
 # << post
 
 %postun
+systemctl daemon-reload
 # >> postun
 %systemd_postun_with_restart sddm.service
 # << postun

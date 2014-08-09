@@ -34,17 +34,9 @@ Requires:
 Provides:
     - service(graphical-login) = %{name}
 
-RequiresPost:
-    - systemd
-RequiresPreUn:
-    - systemd
-RequiresPostUn:
-    - systemd
-
-Configure  : cmake 
-ConfigOptions: 
+Configure: cmake
+ConfigOptions:
     - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
-    - -DUSE_QT5:bool=ON
 
 Files:
     - "%config %{_sysconfdir}/sddm.conf"
