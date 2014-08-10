@@ -51,9 +51,39 @@ Files:
     - "%{_datadir}/sddm/flags/*"
     - "%{_datadir}/sddm/scripts/*"
     - "%{_datadir}/sddm/translations/*"
-    - "%{_datadir}/sddm/themes/circles/*"
-    - "%{_datadir}/sddm/themes/elarun/*"
-    - "%{_datadir}/sddm/themes/maldives/*"
-    - "%{_datadir}/sddm/themes/maui/*"
     - "%{_unitdir}/sddm.service"
     - "%{_libdir}/qt5/qml/SddmComponents/*"
+
+SubPackages:
+    - Name: theme-circles
+      BuildArch: noarch
+      Summary: SDDM "Circles" theme
+      Group: System/GUI/Other
+      Description: |
+        This package contains the "Circles" theme for SDDM.
+      Files:
+         - "%{_datadir}/sddm/themes/circles/*"
+    - Name: theme-elarun
+      BuildArch: noarch
+      Summary: SDDM "Elarun" theme
+      Group: System/GUI/Other
+      Description: |
+        This package contains the "Elarun" theme for SDDM.
+      Files:
+         - "%{_datadir}/sddm/themes/elarun/*"
+    - Name: theme-maldives
+      BuildArch: noarch
+      Summary: SDDM "Maldives" theme
+      Group: System/GUI/Other
+      Description: |
+        This package contains the "Maldives" theme for SDDM.
+      Files:
+         - "%{_datadir}/sddm/themes/maldives/*"
+    - Name: theme-maui
+      BuildArch: noarch
+      Summary: SDDM "Maui" theme
+      Group: System/GUI/Other
+      Description: |
+        This package contains the "Maui" theme for SDDM.
+      Files:
+         - "%{_datadir}/sddm/themes/maui/*"

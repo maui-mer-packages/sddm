@@ -42,6 +42,46 @@ Provides:   service(graphical-login) = %{name}
 %description
 Lightweight QML-based display manager.
 
+%package theme-circles
+Summary:    SDDM "Circles" theme
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description theme-circles
+This package contains the "Circles" theme for SDDM.
+
+
+%package theme-elarun
+Summary:    SDDM "Elarun" theme
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description theme-elarun
+This package contains the "Elarun" theme for SDDM.
+
+
+%package theme-maldives
+Summary:    SDDM "Maldives" theme
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description theme-maldives
+This package contains the "Maldives" theme for SDDM.
+
+
+%package theme-maui
+Summary:    SDDM "Maui" theme
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description theme-maui
+This package contains the "Maui" theme for SDDM.
+
+
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
@@ -127,11 +167,31 @@ systemctl daemon-reload
 %{_datadir}/sddm/flags/*
 %{_datadir}/sddm/scripts/*
 %{_datadir}/sddm/translations/*
-%{_datadir}/sddm/themes/circles/*
-%{_datadir}/sddm/themes/elarun/*
-%{_datadir}/sddm/themes/maldives/*
-%{_datadir}/sddm/themes/maui/*
 %{_unitdir}/sddm.service
 %{_libdir}/qt5/qml/SddmComponents/*
 # >> files
 # << files
+
+%files theme-circles
+%defattr(-,root,root,-)
+%{_datadir}/sddm/themes/circles/*
+# >> files theme-circles
+# << files theme-circles
+
+%files theme-elarun
+%defattr(-,root,root,-)
+%{_datadir}/sddm/themes/elarun/*
+# >> files theme-elarun
+# << files theme-elarun
+
+%files theme-maldives
+%defattr(-,root,root,-)
+%{_datadir}/sddm/themes/maldives/*
+# >> files theme-maldives
+# << files theme-maldives
+
+%files theme-maui
+%defattr(-,root,root,-)
+%{_datadir}/sddm/themes/maui/*
+# >> files theme-maui
+# << files theme-maui
