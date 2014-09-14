@@ -8,6 +8,12 @@ Name:       sddm
 # >> macros
 # << macros
 
+# >> bcond_with
+# << bcond_with
+
+# >> bcond_without
+# << bcond_without
+
 Summary:    Lightweight QML-based display manager
 Version:    0.9.0
 Release:    1
@@ -20,10 +26,6 @@ Source101:  sddm-rpmlintrc
 Requires:   xorg-x11-server-Xorg
 Requires:   libxcb >= 1.10
 Requires:   qt5-plugin-platform-xcb
-Requires:   systemd
-Requires(preun): systemd
-Requires(post): systemd
-Requires(postun): systemd
 BuildRequires:  pkgconfig(systemd)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
@@ -133,22 +135,16 @@ exit 0
 # << pre
 
 %preun
-if [ "$1" -eq 0 ]; then
-systemctl stop sddm.service
-fi
 # >> preun
 %systemd_preun sddm.service
 # << preun
 
 %post
-systemctl daemon-reload
-systemctl reload-or-try-restart sddm.service
 # >> post
 %systemd_post sddm.service
 # << post
 
 %postun
-systemctl daemon-reload
 # >> postun
 %systemd_postun_with_restart sddm.service
 # << postun

@@ -11,6 +11,7 @@ Sources     :
 SetupOptions: -q -n %{name}-%{version}/upstream
 RpmLintIgnore:
     - files-duplicate
+NoSystemdService: True
 
 PkgBR:
     - cmake
