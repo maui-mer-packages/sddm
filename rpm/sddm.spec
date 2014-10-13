@@ -8,14 +8,8 @@ Name:       sddm
 # >> macros
 # << macros
 
-# >> bcond_with
-# << bcond_with
-
-# >> bcond_without
-# << bcond_without
-
 Summary:    Lightweight QML-based display manager
-Version:    0.9.0
+Version:    0.10.0
 Release:    1
 Group:      System/GUI/Other
 License:    LGPL-2.1+
